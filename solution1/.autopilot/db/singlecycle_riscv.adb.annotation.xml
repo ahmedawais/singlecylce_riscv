@@ -1,0 +1,6 @@
+<annotationInfo>
+<annotationInfo>
+<item  id="15" filename="singlecylce_riscv/ins_memory.cpp" linenumber="73" name="exitcond" contextFuncName="singlecycle_riscv" moduleName="singlecycle_riscv" rtlName="exitcond_fu_99_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="9" fileDirectory="C:\Users\Awais"></item>
+<item  id="17" filename="singlecylce_riscv/ins_memory.cpp" linenumber="73" name="i_1" contextFuncName="singlecycle_riscv" moduleName="singlecycle_riscv" rtlName="i_1_fu_105_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="13" fileDirectory="C:\Users\Awais"></item>
+</annotationInfo>
+</annotationInfo>

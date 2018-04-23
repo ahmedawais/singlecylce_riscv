@@ -1,0 +1,181 @@
+
+
+================================================================
+== Vivado HLS Report for 'singlecycle_riscv'
+================================================================
+* Date:           Sun Feb 25 17:21:26 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        singlecylce_riscv
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.49|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   17|   17|   17|   17|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   15|   15|         1|          -|          -|    15|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (exitcond)
+	2  / (!exitcond)
+3 --> 
+
+* FSM state operations: 
+
+ <State 1> : 1.77ns
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %startingInst_V), !map !143"
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i6 %immediate_V), !map !149"
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @singlecycle_riscv_st) nounwind"
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i6 %immediate_V, [6 x i8]* @p_str13, i32 0, i32 0, [1 x i8]* @p_str14, i32 0, i32 0, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind" [singlecylce_riscv/ins_memory.cpp:65]
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %startingInst_V, [6 x i8]* @p_str13, i32 0, i32 0, [1 x i8]* @p_str14, i32 0, i32 0, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind" [singlecylce_riscv/ins_memory.cpp:66]
+ST_1 : Operation 9 [1/1] (1.76ns)   --->   "br label %1" [singlecylce_riscv/ins_memory.cpp:73]
+
+ <State 2> : 6.49ns
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%i = phi i4 [ 0, %0 ], [ %i_1, %_ifconv ]"
+ST_2 : Operation 11 [1/1] (1.30ns)   --->   "%exitcond = icmp eq i4 %i, -1" [singlecylce_riscv/ins_memory.cpp:73]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 15, i64 15, i64 15)"
+ST_2 : Operation 13 [1/1] (1.73ns)   --->   "%i_1 = add i4 %i, 1" [singlecylce_riscv/ins_memory.cpp:73]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %2, label %_ifconv" [singlecylce_riscv/ins_memory.cpp:73]
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%pProgramCounter_name = load i5* @pProgramCounter_name_1, align 1"
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%pProgramCounter_form = load i6* @pProgramCounter_form_1, align 1"
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%pProgramCounter_entr = load i7* @pProgramCounter_entr_1, align 1"
+ST_2 : Operation 18 [1/1] (1.78ns)   --->   "%mem_index_gep = add i5 %pProgramCounter_name, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (1.82ns)   --->   "%mem_index_gep2 = add i6 %pProgramCounter_form, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (1.87ns)   --->   "%mem_index_gep4 = add i7 %pProgramCounter_entr, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "store i5 %mem_index_gep, i5* @pProgramCounter_name_1, align 1"
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "store i6 %mem_index_gep2, i6* @pProgramCounter_form_1, align 1"
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "store i7 %mem_index_gep4, i7* @pProgramCounter_entr_1, align 1"
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "br label %1" [singlecylce_riscv/ins_memory.cpp:73]
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%pProgramCounter_entr_2 = load i7* @pProgramCounter_entr_1, align 1"
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%adjSize14_cast = zext i7 %pProgramCounter_entr_2 to i8"
+ST_2 : Operation 27 [1/1] (1.48ns)   --->   "%addrCmp2 = icmp ugt i7 %pProgramCounter_entr_2, 29"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (1.48ns)   --->   "%addrCmp3 = icmp ult i7 %pProgramCounter_entr_2, 45"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 29 [1/1] (1.87ns)   --->   "%gepindex1 = add i8 -30, %adjSize14_cast"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (0.00ns) (grouped into LUT with out node gepindex3)   --->   "%gepindex2 = select i1 %addrCmp2, i8 %gepindex1, i8 14"   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 31 [1/1] (1.37ns) (out node of the LUT)   --->   "%gepindex3 = select i1 %addrCmp3, i8 %gepindex2, i8 14"   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%gepindex220_cast = sext i8 %gepindex3 to i64"
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%instSet_entryIndex_V = getelementptr [15 x i3]* @instSet_entryIndex_V, i64 0, i64 %gepindex220_cast"
+ST_2 : Operation 34 [2/2] (3.25ns)   --->   "%instSet_entryIndex_V_2 = load i3* %instSet_entryIndex_V, align 1"   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 3> <Depth = 15> <ROM>
+
+ <State 3> : 5.21ns
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%pProgramCounter_form_2 = load i6* @pProgramCounter_form_1, align 1"
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%adjSize11_cast = zext i6 %pProgramCounter_form_2 to i7"
+ST_3 : Operation 37 [1/1] (1.42ns)   --->   "%addrCmp = icmp ugt i6 %pProgramCounter_form_2, 14"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 38 [1/1] (1.42ns)   --->   "%addrCmp1 = icmp ult i6 %pProgramCounter_form_2, 30"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 39 [1/1] (1.82ns)   --->   "%gepindex = add i7 -15, %adjSize11_cast" [singlecylce_riscv/ins_memory.cpp:127->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 40 [1/1] (0.00ns) (grouped into LUT with out node cond_i)   --->   "%gepindex_cast = sext i7 %gepindex to i9" [singlecylce_riscv/ins_memory.cpp:127->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]
+ST_3 : Operation 41 [1/2] (3.25ns)   --->   "%instSet_entryIndex_V_2 = load i3* %instSet_entryIndex_V, align 1"   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 3> <Depth = 15> <ROM>
+ST_3 : Operation 42 [1/1] (0.00ns) (grouped into LUT with out node cond_i)   --->   "%p_op = lshr i9 -238, %gepindex_cast" [singlecylce_riscv/ins_memory.cpp:127->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.25> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 43 [1/1] (0.00ns) (grouped into LUT with out node cond_i)   --->   "%tmp = trunc i9 %p_op to i1" [singlecylce_riscv/ins_memory.cpp:127->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]
+ST_3 : Operation 44 [1/1] (0.00ns) (grouped into LUT with out node cond_i)   --->   "%cond_i1 = and i1 %addrCmp, %tmp" [singlecylce_riscv/ins_memory.cpp:127->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 45 [1/1] (3.25ns) (out node of the LUT)   --->   "%cond_i = and i1 %addrCmp1, %cond_i1" [singlecylce_riscv/ins_memory.cpp:127->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "br i1 %cond_i, label %3, label %ALU.exit" [singlecylce_riscv/ins_memory.cpp:127->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%tmp_1 = trunc i3 %instSet_entryIndex_V_2 to i2"
+ST_3 : Operation 48 [1/1] (1.95ns)   --->   "%merge_i_i = call i7 @_ssdm_op_Mux.ap_auto.4i7.i2(i7 52, i7 3, i7 -25, i7 -25, i2 %tmp_1)"   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 49 [1/1] (0.00ns)   --->   "br label %ALU.exit" [singlecylce_riscv/ins_memory.cpp:135->singlecylce_riscv/ALU.cpp:11->singlecylce_riscv/GReg.cpp:57->singlecylce_riscv/ins_memory.cpp:118]
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "ret void" [singlecylce_riscv/ins_memory.cpp:120]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', singlecylce_riscv/ins_memory.cpp:73) [14]  (1.77 ns)
+
+ <State 2>: 6.49ns
+The critical path consists of the following:
+	'load' operation ('pProgramCounter_entr_2') on static variable 'pProgramCounter_entr_1' [33]  (0 ns)
+	'add' operation ('gepindex1') [41]  (1.87 ns)
+	'select' operation ('gepindex2') [42]  (0 ns)
+	'select' operation ('gepindex3') [43]  (1.37 ns)
+	'getelementptr' operation ('instSet_entryIndex_V') [45]  (0 ns)
+	'load' operation ('pProgramCounter.entryIndex.V') on array 'instSet_entryIndex_V' [46]  (3.25 ns)
+
+ <State 3>: 5.21ns
+The critical path consists of the following:
+	'load' operation ('pProgramCounter.entryIndex.V') on array 'instSet_entryIndex_V' [46]  (3.25 ns)
+	'mux' operation ('ret.V') [54]  (1.96 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

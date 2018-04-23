@@ -1,0 +1,16 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="singlecycle_riscv" label="">
+<pragma name="INTERFACE">
+<option name="ap_hs" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="immediate"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="singlecycle_riscv" label="">
+<pragma name="INTERFACE">
+<option name="ap_hs" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="startingInst"/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

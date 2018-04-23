@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="ins_memory.cpp" path="C:\Users\Awais\singlecylce_riscv\ins_memory.cpp"/>
+    <originFiles name="data_memory.cpp" path="C:\Users\Awais\singlecylce_riscv\data_memory.cpp"/>
+    <originFiles name="GReg.cpp" path="C:\Users\Awais\singlecylce_riscv\GReg.cpp"/>
+    <originFiles name="ALU.cpp" path="C:\Users\Awais\singlecylce_riscv\ALU.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="singlecycle_risv.cpp" path="C:\Users\Awais\singlecycle_risv.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
